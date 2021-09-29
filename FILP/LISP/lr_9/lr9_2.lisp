@@ -1,0 +1,15 @@
+(defun decart (lst1 lst2)
+    (mapcan #'(lambda (x1)(mapcar #'(lambda (x2) (cons x1(cons x2 nil)))lst2)) lst1)
+)
+
+(defun decart_rec(lst1 lst2)
+ ( cond ( (null lst1) nil)
+ (t (nconc (dec_rec (car lst1) lst2) (decart_rec (cdr lst1) lst2)))
+ )
+)
+
+(defun dec_rec(el lst)
+ ( cond ((null lst) Nil)
+ (t (cons (cons el (cons (car lst) nil)) (dec_rec el (cdr lst))))
+ )
+)
